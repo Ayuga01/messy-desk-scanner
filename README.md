@@ -17,8 +17,3 @@ Install dependencies with:
 ```bash
 pip install -r requirements.txt
 
-messy-desk-scanner/
-├── webcam.py            # Real-time detection via webcam
-├── yolov8n.pt           # YOLOv8 model
-├── requirements.txt     # Python dependencies
-└── README.md            # You're reading it!
