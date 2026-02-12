@@ -47,7 +47,14 @@ def get_chaos_level(score):
     else:
         return "🚨 Disaster zone! Time to declutter."
 
+import time
+
+# Initialize FPS variables
+prev_frame_time = 0
+new_frame_time = 0
+
 while True:
+    new_frame_time = time.time()
     ret, frame = cap.read()
     if not ret:
         break
@@ -64,8 +71,16 @@ while True:
         print(f"Detected: {label} (class index: {class_idx})")
     score = compute_chaos_score(results)
 
+    # Calculate FPS
+    fps = 1 / (new_frame_time - prev_frame_time)
+    prev_frame_time = new_frame_time
+    fps = int(fps)
+
+    # Display Chaos Score and FPS
     cv2.putText(annotated_frame, f"Chaos Score: {score}", (20, 40),
-                cv2.FONT_HERSHEY_SIMPLEX, 1.2, (0, 0, 255), 3)
+                cv2.FONT_HERSHEY_SIMPLEX, 1.0, (0, 0, 255), 2)
+    cv2.putText(annotated_frame, f"FPS: {fps}", (20, 80),
+                cv2.FONT_HERSHEY_SIMPLEX, 1.0, (0, 255, 0), 2)
 
     cv2.imshow("Messy Desk Scanner", annotated_frame)
 
