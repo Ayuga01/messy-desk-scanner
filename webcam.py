@@ -8,8 +8,18 @@ model = YOLO("yolov8n.pt")
 cap = cv2.VideoCapture(0)
 
 # Define object weights for scoring
+# Define object weights for scoring
 weights = {
-    "pen": 1, "paper": 2, "mug": 3, "trash": 5, "book": 2, "cable": 3, "bottle": 4, "clothes": 3,
+    "bottle": 4, "cup": 3, "wine glass": 4, "bowl": 3,
+    "banana": 2, "apple": 2, "sandwich": 2, "orange": 2, "broccoli": 2, "carrot": 2, 
+    "hot dog": 5, "pizza": 5, "donut": 5, "cake": 5,
+    "chair": 2, "couch": 2, "potted plant": 2, "bed": 5, "dining table": 2, "toilet": 5,
+    "tv": 5, "laptop": 2, "mouse": 1, "remote": 2, "keyboard": 1, "cell phone": 3,
+    "microwave": 5, "oven": 5, "toaster": 5, "sink": 5, "refrigerator": 5,
+    "book": 2, "clock": 2, "vase": 2, "scissors": 4, "teddy bear": 3, "hair drier": 5, "toothbrush": 5,
+    "backpack": 4, "umbrella": 4, "handbag": 4, "tie": 3, "suitcase": 5,
+    # Original items (some might overlap or not be standard COCO, keeping for safety if model is custom, otherwise ignored)
+    "pen": 1, "paper": 2, "mug": 3, "trash": 5, "cable": 3, "clothes": 3, 
 }
 
 # Compute chaos score from results
