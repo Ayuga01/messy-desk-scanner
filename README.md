@@ -2,6 +2,8 @@
 
 A Streamlit web app that uses YOLO object detection to scan your desk via webcam, detect clutter, and rate its messiness on a "Chaos Score" scale.
 
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://messy-desk-scanner.streamlit.app/)
+
 ## 🔍 What It Does
 
 - Captures a photo using your **webcam**
